@@ -1,7 +1,7 @@
 'use client';
 
-import { AuthProvider } from '../../../../components/auth/AuthContext';
-import SignUpForm from '../../../../components/auth/SignUpForm';
+import { AuthProvider } from '../../../components/auth/AuthContext';
+import SignUpForm from '../../../components/auth/SignUpForm';
 
 export default function SignUpPage() {
   return (

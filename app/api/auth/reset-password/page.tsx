@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { AuthProvider, useAuth } from '../../../../components/auth/AuthContext';
+import { AuthProvider, useAuth } from '../../../components/auth/AuthContext';
 
 function ResetPasswordForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);  
   const { resetPassword } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {

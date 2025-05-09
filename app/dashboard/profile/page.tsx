@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../components/auth/AuthContext';
-import { updateProfile, updateEmail, updatePassword, User } from 'firebase/auth';
+import { updateProfile, updateEmail, updatePassword } from 'firebase/auth';
 
 export default function ProfilePage() {
   const { user } = useAuth();

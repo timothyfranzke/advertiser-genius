@@ -24,11 +24,15 @@ export default function SignInForm() {
     try {
       setError('');
       setLoading(true);
-      await signIn(email, password);
-      router.push('/dashboard');
+      const user = await signIn(email, password);
+      if (user) {
+        // Using direct browser navigation instead of Next.js router
+        // This is more forceful and will work even if firebase state isn't fully synced
+        console.log('Sign in successful, redirecting...');
+        window.location.href = '/dashboard';
+      }
     } catch (err: any) {
       setError('Failed to sign in: ' + (err.message || 'Unknown error'));
-    } finally {
       setLoading(false);
     }
   };
@@ -37,11 +41,14 @@ export default function SignInForm() {
     try {
       setError('');
       setLoading(true);
-      await signInWithGoogle();
-      router.push('/dashboard');
+      const user = await signInWithGoogle();
+      if (user) {
+        // Using direct browser navigation instead of Next.js router
+        console.log('Google sign in successful, redirecting...');
+        window.location.href = '/dashboard';
+      }
     } catch (err: any) {
       setError('Failed to sign in with Google: ' + (err.message || 'Unknown error'));
-    } finally {
       setLoading(false);
     }
   };

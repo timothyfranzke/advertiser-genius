@@ -35,11 +35,14 @@ export default function SignUpForm() {
     try {
       setError('');
       setLoading(true);
-      await signUp(email, password);
-      router.push('/dashboard');
+      const user = await signUp(email, password);
+      if (user) {
+        // Using direct browser navigation instead of Next.js router
+        console.log('Account created successfully, redirecting...');
+        window.location.href = '/dashboard';
+      }
     } catch (err: any) {
       setError('Failed to create account: ' + (err.message || 'Unknown error'));
-    } finally {
       setLoading(false);
     }
   };
@@ -48,11 +51,14 @@ export default function SignUpForm() {
     try {
       setError('');
       setLoading(true);
-      await signInWithGoogle();
-      router.push('/dashboard');
+      const user = await signInWithGoogle();
+      if (user) {
+        // Using direct browser navigation instead of Next.js router
+        console.log('Google sign up successful, redirecting...');
+        window.location.href = '/dashboard';
+      }
     } catch (err: any) {
       setError('Failed to sign up with Google: ' + (err.message || 'Unknown error'));
-    } finally {
       setLoading(false);
     }
   };

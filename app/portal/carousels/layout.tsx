@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { AuthProvider } from '../../../components/auth/AuthContext';
+import { AuthProvider } from '../../components/auth/AuthContext';
 
 export default function CarouselsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

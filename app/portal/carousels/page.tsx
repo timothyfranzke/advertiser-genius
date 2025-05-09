@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useAuth } from '../../../components/auth/AuthContext';
+import { useAuth } from '../../components/auth/AuthContext';
 
 interface Carousel {
   id: string;
